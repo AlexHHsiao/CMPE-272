@@ -17,26 +17,26 @@ $router->before('GET', '/.*', function () {
     header('X-Powered-By: bramus/router');
 });
 
-$router->get('/', function () {
-    require './views/home.php';
+$router->all('/', function () {
+    require_once  './views/home.php';
 });
 
-$router->get('/about', function () {
-    require './views/about.php';
+$router->all('/about', function () {
+    require_once  './views/about.php';
 });
 
-$router->get('/news', function () {
-    require './views/news.php';
-});
-
-// Static route: /hello
-$router->get('/product', function () {
-    require './views/product.php';
+$router->all('/news', function () {
+    require_once  './views/news.php';
 });
 
 // Static route: /hello
-$router->get('/contact', function () {
-    require './views/contact.php';
+$router->all('/product', function () {
+    require_once  './views/product.php';
+});
+
+// Static route: /hello
+$router->all('/contact', function () {
+    require_once  './views/contact.php';
 });
 
 // Thunderbirds are go!

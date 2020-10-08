@@ -1,6 +1,6 @@
 <?php
 $GLOBALS['currentPage'] = 'news';
-require './components/header.php';
+require_once './components/header.php';
 ?>
 
 <style>

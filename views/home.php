@@ -1,6 +1,6 @@
 <?php
 $GLOBALS['currentPage']  = 'home';
-require './components/header.php';
+require_once './components/header.php';
 ?>
 
 <div class="jumbotron">
