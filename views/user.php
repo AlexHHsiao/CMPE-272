@@ -50,7 +50,6 @@ function submitDBInput()
         }
 
         $GLOBALS['searchUser'] = $conn->query($query) or die($conn->error);
-        echo 'You have chosen: ' . $selected . $search;
     }
 }
 
