@@ -80,6 +80,11 @@ _END;
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
 _END;
+    $userTab = <<<_END
+  <li class="nav-item">
+                <a class="nav-link" href="/user">User</a>
+            </li>
+_END;
 
     switch ($GLOBALS['currentPage']) {
         case 'about':
@@ -110,6 +115,13 @@ _END;
 </li>
 _END;
             break;
+        case 'user':
+            $userTab = <<<_END
+<li class="nav-item active">
+  <a class="nav-link" href="/user">User <span class="sr-only">(current)</span></a>
+</li>
+_END;
+            break;
         default:
             $homeTab = <<<_END
 <li class="nav-item active">
@@ -118,7 +130,7 @@ _END;
 _END;
     }
 
-    echo $homeTab, $aboutTab, $newsTab, $productTab, $contactTab;
+    echo $homeTab, $aboutTab, $newsTab, $productTab, $userTab, $contactTab;
 }
 
 ?>

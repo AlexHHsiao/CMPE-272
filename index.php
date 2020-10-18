@@ -1,8 +1,7 @@
 <?php
-
 // Include the Router class
 require __DIR__ . '/vendor/autoload.php';
-
+require_once './db/db.php';
 // Create a Router
 $router = new \Bramus\Router\Router();
 
@@ -29,12 +28,14 @@ $router->all('/news', function () {
     require_once  './views/news.php';
 });
 
-// Static route: /hello
 $router->all('/product', function () {
     require_once  './views/product.php';
 });
 
-// Static route: /hello
+$router->all('/user', function () {
+    require_once  './views/user.php';
+});
+
 $router->all('/contact', function () {
     require_once  './views/contact.php';
 });
