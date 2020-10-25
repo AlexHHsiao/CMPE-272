@@ -32,6 +32,11 @@ $router->all('/product', function () {
     require_once  './views/product.php';
 });
 
+$router->get('/product/(\w+)', function($name) {
+    $GLOBALS['selectedProduct'] = htmlentities($name);
+    require_once  './views/product-detail.php';
+});
+
 $router->all('/user', function () {
     require_once  './views/user.php';
 });
@@ -40,5 +45,4 @@ $router->all('/contact', function () {
     require_once  './views/contact.php';
 });
 
-// Thunderbirds are go!
 $router->run();
