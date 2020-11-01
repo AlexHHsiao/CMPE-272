@@ -14,10 +14,6 @@ if(isset($_COOKIE['mostVisited'])) {
 
     $mostVisited[$GLOBALS['selectedProduct']] = $value;
     arsort($mostVisited);
-
-    if (count($mostVisited) > 5) {
-        array_pop($mostVisited);
-    }
 } else {
     $mostVisited[$GLOBALS['selectedProduct']] = 1;
 }

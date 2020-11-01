@@ -54,8 +54,13 @@ require_once './components/header.php';
 function printMostVisited()
 {
     $mostVisited = unserialize($_COOKIE['mostVisited'], ["allowed_classes" => false]);
-
+    $counter = 0;
     foreach ($mostVisited as $key => $value) {
+        if ($counter == 5) {
+            break;
+        }
+
+        $counter++;
         echo <<<_END
 <li class="list-group-item d-flex justify-content-between align-items-center">
     $key

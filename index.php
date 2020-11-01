@@ -45,4 +45,12 @@ $router->all('/contact', function () {
     require_once  './views/contact.php';
 });
 
+$router->get('/getUser', function () {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://cmpe-php.herokuapp.com/API/index.php");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    echo curl_exec($ch);
+    curl_close($ch);
+});
+
 $router->run();
