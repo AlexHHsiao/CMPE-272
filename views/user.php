@@ -82,6 +82,42 @@ _END;
 
     echo "</tbody></table>";
 }
+
+function aliTableHandler() {
+    $cURLConnection = curl_init();
+
+    curl_setopt($cURLConnection, CURLOPT_URL, 'http://yohoc.xyz/curl.php');
+    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+    $userList = json_decode(curl_exec($cURLConnection), true);
+
+    echo <<<_END
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Home Phone</th>
+                    <th scope="col">Cell Phone</th>
+                </tr>
+                </thead>
+                <tbody>
+_END;
+
+    foreach($userList as $row) {
+        echo "<tr>";
+        echo '<td>'.$row["firstName"].'</td>';
+        echo '<td>'.$row["lastName"].'</td>';
+        echo '<td>'.$row["address"].'</td>';
+        echo '<td>'.$row["email"].'</td>';
+        echo '<td>'.$row["homePhone"].'</td>';
+        echo '<td>'.$row["cellPhone"].'</td>';
+        echo "</tr>";
+    }
+
+    echo "</tbody></table>";
+}
 ?>
 
 <style>
@@ -183,9 +219,16 @@ _END;
     </div>
 
     <div class="card">
-        <h5 class="card-header">User Table</h5>
+        <h5 class="card-header">My User Table</h5>
         <div class="card-body">
             <?php tableHandler($GLOBALS['allUser'])?>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">YOHO User Table</h5>
+        <div class="card-body">
+            <?php aliTableHandler($GLOBALS['allUser'])?>
         </div>
     </div>
 </div>
